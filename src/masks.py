@@ -3,10 +3,13 @@ import textwrap
 
 def get_mask_card_number(card_numbers: str) -> str:
     """Маскируем номер карты и возвращаем разбитый номер"""
-    hide_numbers = card_numbers[-10:] + "******" + card_numbers[-4:]
-    new_numbers = " ".join(textwrap.wrap(hide_numbers, 4))[-20:]
-    result = card_numbers[:-17] + new_numbers
-    return result
+    if card_numbers != "":
+        hide_numbers = card_numbers[-16:-10] + "******" + card_numbers[-4:]
+        new_numbers = " ".join(textwrap.wrap(hide_numbers, 4))[-20:]
+        result = card_numbers[:-16] + new_numbers
+        return result
+    else:
+        return ""
 
 
 def get_mask_account(account_numbers: str) -> str:

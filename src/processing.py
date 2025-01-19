@@ -1,4 +1,4 @@
-from typing import Dict, List, Tuple
+from typing import Dict, List
 
 bank_operations = [
     {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
@@ -8,7 +8,7 @@ bank_operations = [
 ]
 
 
-def filter_by_state(bank_info: List[Dict], state: Tuple[str,...] =("EXECUTED",)) -> List[Dict]:
+def filter_by_state(bank_info: List[Dict], state: str = "EXECUTED") -> List[Dict]:
     """Функция обрабатывающая список словарей с данными о банковских операциях"""
     new_list = []
     for name in bank_info:
@@ -17,7 +17,7 @@ def filter_by_state(bank_info: List[Dict], state: Tuple[str,...] =("EXECUTED",))
     return new_list
 
 
-modified_list = filter_by_state(bank_operations, state=("EXECUTED", "CANCELED"))
+modified_list = filter_by_state(bank_operations, state="EXECUTED" or "CANCELED")
 
 print(modified_list)
 
