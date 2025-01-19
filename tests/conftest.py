@@ -12,3 +12,16 @@ def mastercard():
 @pytest.fixture
 def empty_string():
     return ""
+
+@pytest.fixture
+def first_account():
+    return "Счет **4305"
+
+@pytest.fixture
+def second_account():
+    return "Счет **9589"
+
+@pytest.fixture
+def empty_account():
+    return ""
+
