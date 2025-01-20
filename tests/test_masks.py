@@ -6,7 +6,7 @@ def test_get_mask_card_maestro(maestro):
 
 
 def test_get_mask_card_mastercard(mastercard):
-    assert get_mask_card_number("MasterCard 300734726758") == mastercard
+    assert get_mask_card_number("MasterCard 7158300734726758") == mastercard
 
 
 def test_get_mask_card_empty_string(empty_string):

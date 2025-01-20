@@ -8,7 +8,7 @@ def maestro():
 
 @pytest.fixture
 def mastercard():
-    return "MasterCard  30** **** 6758"
+    return "MasterCard 7158 30** **** 6758"
 
 
 @pytest.fixture
