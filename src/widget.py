@@ -1,4 +1,4 @@
-import masks
+from src import masks
 
 
 def mask_account_card(account_info: str) -> str:
@@ -11,7 +11,8 @@ def mask_account_card(account_info: str) -> str:
 
 def get_date(date: str) -> str:
     """Функция конвертирования даты"""
-    result = date[8:10] + "." + date[5:7] + "." + date[:4]
-    return result
-
-
+    if date != "":
+        result = date[8:10] + "." + date[5:7] + "." + date[:4]
+        return result
+    elif date == "":
+        return ""

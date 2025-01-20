@@ -14,19 +14,11 @@ def filter_by_state(bank_info: List[Dict], state: str = "EXECUTED") -> List[Dict
     for name in bank_info:
         if name.get("state") in state:
             new_list.append(name)
+        elif name.get("state") not in state:
+            new_list.append(name)
     return new_list
-
-
-modified_list = filter_by_state(bank_operations, state="EXECUTED" or "CANCELED")
-
-print(modified_list)
 
 
 def sort_by_date(bank_info: List[Dict], direction: bool=False) -> List[Dict]:
     """"Функция сортировки списка по дате из словарей"""
     return sorted(bank_info, key=lambda x: x["date"], reverse=direction)
-
-
-sorted_list = sort_by_date(bank_operations)
-
-print(sorted_list)

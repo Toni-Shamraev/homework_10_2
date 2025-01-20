@@ -7,7 +7,7 @@ def maestro():
 
 @pytest.fixture
 def mastercard():
-    return "MasterCard 7158 30** **** 6758"
+    return "MasterCard  30** **** 6758"
 
 @pytest.fixture
 def empty_string():
@@ -25,3 +25,14 @@ def second_account():
 def empty_account():
     return ""
 
+@pytest.fixture
+def first_date():
+    return "11.03.2024"
+
+@pytest.fixture
+def second_date():
+    return "02.12.2023"
+
+@pytest.fixture
+def empty_date():
+    return ""
