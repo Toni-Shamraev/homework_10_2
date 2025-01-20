@@ -19,6 +19,6 @@ def filter_by_state(bank_info: List[Dict], state: str = "EXECUTED") -> List[Dict
     return new_list
 
 
-def sort_by_date(bank_info: List[Dict], direction: bool=False) -> List[Dict]:
+def sort_by_date(bank_info: List[Dict], direction: bool = False) -> List[Dict]:
     """"Функция сортировки списка по дате из словарей"""
     return sorted(bank_info, key=lambda x: x["date"], reverse=direction)
