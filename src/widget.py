@@ -1,6 +1,4 @@
-"""Импортируем модуль из прошлой домашки"""
-
-import masks
+from src import masks
 
 
 def mask_account_card(account_info: str) -> str:
@@ -13,9 +11,8 @@ def mask_account_card(account_info: str) -> str:
 
 def get_date(date: str) -> str:
     """Функция конвертирования даты"""
-    result = date[8:10] + "." + date[5:7] + "." + date[:4]
-    return result
-
-
-print(mask_account_card('Счет 35383033474447895560'))
-print(get_date('2024-03-11T02:26:18.671407'))
+    if date != "":
+        result = date[8:10] + "." + date[5:7] + "." + date[:4]
+        return result
+    elif date == "":
+        return ""

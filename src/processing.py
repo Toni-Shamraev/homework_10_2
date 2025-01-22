@@ -1,4 +1,4 @@
-from typing import Dict, List, Tuple
+from typing import Dict, List
 
 bank_operations = [
     {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
@@ -8,25 +8,17 @@ bank_operations = [
 ]
 
 
-def filter_by_state(bank_info: List[Dict], state: Tuple[str,...] =("EXECUTED",)) -> List[Dict]:
+def filter_by_state(bank_info: List[Dict], state: str = "EXECUTED") -> List[Dict]:
     """Функция обрабатывающая список словарей с данными о банковских операциях"""
     new_list = []
     for name in bank_info:
         if name.get("state") in state:
             new_list.append(name)
+        elif name.get("state") not in state:
+            new_list.append(name)
     return new_list
 
 
-modified_list = filter_by_state(bank_operations, state=("EXECUTED", "CANCELED"))
-
-print(modified_list)
-
-
-def sort_by_date(bank_info: List[Dict], direction: bool=False) -> List[Dict]:
+def sort_by_date(bank_info: List[Dict], direction: bool = False) -> List[Dict]:
     """"Функция сортировки списка по дате из словарей"""
     return sorted(bank_info, key=lambda x: x["date"], reverse=direction)
-
-
-sorted_list = sort_by_date(bank_operations)
-
-print(sorted_list)
