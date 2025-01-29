@@ -1,7 +1,7 @@
 import pytest
 
 from src.generators import (card_number_generator, filter_by_currency,
-                            transactions, transaction_descriptions)
+                            transaction_descriptions, transactions)
 
 
 def test_filter_by_usd():
@@ -9,6 +9,7 @@ def test_filter_by_usd():
     assert next(currency_code) == transactions[0]
     assert next(currency_code) == transactions[1]
     assert next(currency_code) == transactions[3]
+
 
 def test_filter_by_rub():
     currency_code = filter_by_currency(transactions, "RUB")

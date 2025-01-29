@@ -1,7 +1,5 @@
 import pytest
 
-from src.generators import card_number_generator
-
 
 @pytest.fixture
 def maestro():
@@ -46,5 +44,3 @@ def second_date():
 @pytest.fixture
 def empty_date():
     return ""
-
-
