@@ -47,8 +47,4 @@ def second_date():
 def empty_date():
     return ""
 
-#
-# @pytest.fixture
-# def gen_1():
-#     return "0000 0000 0000 0001"
 
