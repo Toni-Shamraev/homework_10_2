@@ -79,10 +79,10 @@ transactions = (
 )
 
 
-def filter_by_currency(my_list, y):
+def filter_by_currency(my_list, currency_code):
     """Фильтрация по валюте"""
     for transaction in my_list:
-        if transaction.get("operationAmount").get("currency").get("code") == y:
+        if transaction.get("operationAmount", {}).get("currency", {}).get("code") == currency_code:
             yield transaction
 
 
