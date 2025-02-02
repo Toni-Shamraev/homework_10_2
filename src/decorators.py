@@ -7,7 +7,7 @@ def log(func):
         print(f"Начало работы функции: {func.__name__}, с параметрами {args[0]} и {args[1]}")
         try:
             result = func(*args, **kwargs)
-            print(f"Функция {func.__name__} выполнена успешно с результатом {result}")
+            print(f"Функция {func.__name__} выполнена успешно с результатом: {result}")
             return result
         except Exception:
             print(f"Функция {func.__name__} завершилась с ошибкой")
@@ -18,6 +18,7 @@ def log(func):
 @log
 def my_function(x, y):
     return x + y
+
 
 my_function(1, 2)
 
