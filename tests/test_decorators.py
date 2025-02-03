@@ -1,20 +1,12 @@
 from src.decorators import my_function, log
 
 
-def test_my_function_success(capsys):
-    result = my_function(3, 4)
-    assert result == 7
-    captured = capsys.readouterr()
-    assert "Начало работы функции: my_function, с параметрами 3 и 4" in captured.out
-    assert "Функция my_function выполнена успешно с результатом: 7" in captured.out
+def test_my_function():
+    assert my_function(3, 4) == 7
 
+def test_log_in_file():
+    with open("mylog.txt", 'r', encoding='utf-8') as log_file:
+        logs = log_file.read()
+        assert "Начало работы функции: my_function" in logs
+        assert "my_function ok" in logs
 
-def test_my_function_fail(capsys):
-    @log
-    def my_function(x, y):
-        return x / y
-    result = my_function(5, 0)
-    assert result is None
-    captured = capsys.readouterr()
-    assert "Начало работы функции: my_function, с параметрами 5 и 0" in captured.out
-    assert "Функция my_function завершилась с ошибкой" in captured.out

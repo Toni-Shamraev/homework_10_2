@@ -1,21 +1,24 @@
 from functools import wraps
 
 
-def log(func):
-    @wraps(func)
-    def wrapper(*args, **kwargs):
-        print(f"Начало работы функции: {func.__name__}, с параметрами {args[0]} и {args[1]}")
-        try:
-            result = func(*args, **kwargs)
-            print(f"Функция {func.__name__} выполнена успешно с результатом: {result}")
-            return result
-        except Exception:
-            print(f"Функция {func.__name__} завершилась с ошибкой")
+def log(filename):
+    """Декоратор для записи начала работы функции и её результат в текстовый файл mylog"""
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            with open(filename, 'w', encoding='utf-8') as log_file:
+                log_file.write(f"Начало работы функции: {func.__name__}, с параметрами {args[0]} и {args[1]}\n")
+                try:
+                    result = func(*args, **kwargs)
+                    log_file.write(f"{func.__name__} ok")
+                    return result
+                except Exception as error:
+                    log_file.write(f"{func.__name__} {str(error)}. Inputs: {args[0]} и {args[1]}")
+        return wrapper
+    return decorator
 
-    return wrapper
 
-
-@log
+@log(filename="mylog.txt")
 def my_function(x, y):
     return x + y
 
